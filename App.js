@@ -1,12 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, Button } from 'react-native';
 
 export default function App() {
+  const handlePress = () => {console.log("clicked")}
+
   return (
-    <View style={styles.container}>
-      <Text>First mobile app!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text onPress={handlePress}>First mobile app!</Text>
+      <Image source={{
+        uri: "https://picsum.photos/200/300",
+        width: 200,
+        height: 300
+      }} />
+      <Button title="Click" color="orange" onPress={() => alert("button tapped")} />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
