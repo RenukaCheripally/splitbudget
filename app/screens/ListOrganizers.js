@@ -1,11 +1,12 @@
-import React from 'react';
-import { FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, FlatList } from 'react-native';
 
 import Screen from '../components/Screen';
 import Profile from '../components/Profile';
 import ListItemSeparator from '../components/ListItemSeparator';
+import ListItemDeleteAction from '../components/ListComponents/ListItemDeleteAction';
 
-const organizers = [
+const initialOrganizers = [
   {
     id: "TS1",
     name: "Tina Smith",
@@ -27,6 +28,13 @@ const organizers = [
 ]
 
 function ListOrganizers(props) {
+  const [organizers, setOrganizers] = useState(initialOrganizers);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = item => {
+    setOrganizers(organizers.filter((organizer) => organizer.id !== item.id));
+  }
+
   return (
     <Screen>
       <FlatList
@@ -37,10 +45,15 @@ function ListOrganizers(props) {
             title={item.name}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log('Message selected', item)}
+            onPress={() => Alert.alert(item.name)}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {setOrganizers(initialOrganizers)}}
       />
     </Screen>
   );
