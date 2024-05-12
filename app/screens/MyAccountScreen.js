@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import Screen from '../components/Screen';
 import Profile from '../components/Profile';
 import colors from '../config/colors';
-import ListItemSeparator from '../components/ListItemSeparator';
+import ListItemSeparator from '../components/ListComponents/ListItemSeparator';
 import Icon from '../components/Icon';
 
 function MyAccountScreen(props) {

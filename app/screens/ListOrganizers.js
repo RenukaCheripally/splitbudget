@@ -3,7 +3,7 @@ import { Alert, FlatList } from 'react-native';
 
 import Screen from '../components/Screen';
 import Profile from '../components/Profile';
-import ListItemSeparator from '../components/ListItemSeparator';
+import ListItemSeparator from '../components/ListComponents/ListItemSeparator';
 import ListItemDeleteAction from '../components/ListComponents/ListItemDeleteAction';
 
 const initialOrganizers = [

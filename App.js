@@ -8,13 +8,19 @@ import ListItineraries from "./app/screens/ListItineraries";
 import AppTextInput from "./app/components/InputComponents/AppTextInput";
 import Test from "./app/screens/Test";
 import Screen from "./app/components/Screen";
+import { View } from "react-native";
+import AppPicker from "./app/components/InputComponents/AppPicker";
 
 export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Screen>
-        {<AppTextInput icon="email" placeholder="First Name" />}
+        {<View>
+          <AppTextInput icon="email" placeholder="First Name" />
+          <AppTextInput icon="email" placeholder="Second Name" />
+          <AppPicker icon="apps" placeholder="Category" />
+          </View>}
       </Screen>
     </GestureHandlerRootView>
   );
