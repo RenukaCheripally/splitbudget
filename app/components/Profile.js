@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   },
   profile: {
     flexDirection: "row",
+    padding: 15
   },
   image: {
     width: 70,
