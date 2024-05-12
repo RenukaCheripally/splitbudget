@@ -5,28 +5,30 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import AppText from './AppText';
 import colors from '../config/colors';
 
-function Profile({title, subTitle, image, onPress, renderRightActions}) {
+function Profile({title, subTitle, image, IconComponent, onPress, renderRightActions, style}) {
   return (
-        <Swipeable renderRightActions={renderRightActions}>
-          <TouchableHighlight
-            underlayColor={colors.light}
-            onPress={onPress}
-          >
-            <View style={styles.profile}>
-              <Image source={image} style={styles.image} />
-              <View style={styles.details}>
-                <AppText title={title} style={styles.title} />
-                <AppText title={subTitle} style={styles.subTitle} />
-              </View>
-            </View>
-          </TouchableHighlight>
-        </Swipeable>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight
+        underlayColor={colors.light}
+        onPress={onPress}
+      >
+        <View style={styles.profile}>
+          {IconComponent}
+          {image && <Image source={image} style={styles.image} />}
+          <View style={styles.details}>
+            <AppText title={title} style={styles.title} />
+            {subTitle && <AppText title={subTitle} style={styles.subTitle} />}
+          </View>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 }
 
 const styles = StyleSheet.create({
   details: {
     justifyContent: "center",
+    marginLeft: 10,
   },
   profile: {
     flexDirection: "row",
@@ -36,7 +38,6 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    marginRight: 10
   },
   subTitle: {
     color: colors.medium,

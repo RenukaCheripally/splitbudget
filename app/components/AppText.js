@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Platform } from 'react-native';
 
 import colors from '../config/colors';
 
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: 'Avenir'
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
   }
 })
 

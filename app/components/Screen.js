@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Platform, StyleSheet, SafeAreaView } from 'react-native';
+import { Platform, StyleSheet, SafeAreaView, View } from 'react-native';
 
 function Screen({children, style}) {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      {children}
+      <View style={style}>
+        {children}
+      </View>
     </SafeAreaView>
   );
 }

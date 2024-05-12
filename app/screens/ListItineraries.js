@@ -1,48 +1,70 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
-import AppText from '../components/AppText';
+import Screen from '../components/Screen';
+import Card from '../components/Card';
 import colors from '../config/colors';
-import Profile from '../components/Profile';
 
 function ListItineraries(props) {
+  const itineraries = [
+    {
+      id: 1,
+      title: "Pondicherry",
+      subTitle: 8000,
+      image: require("../assets/pondicherry.jpeg"),
+      organizer: {
+        name: "Renuka Cheripally",
+        image: require("../assets/rc.jpeg")
+      },
+      duration: "5N/6D"
+    },
+    {
+      id: 2,
+      title: "Gokarna",
+      subTitle: 5000,
+      image: require("../assets/gokarna.jpeg"),
+      organizer: {
+        name: "Renuka Cheripally",
+        image: require("../assets/rc.jpeg")
+      },
+      duration: "3N/4D"
+    },
+    {
+      id: 3,
+      title: "Goa",
+      subTitle: 6000,
+      image: require("../assets/goa.jpeg"),
+      organizer: {
+        name: "Renuka Cheripally",
+        image: require("../assets/rc.jpeg")
+      },
+      duration: "4N/5D"
+    }
+  ]
+
   return (
-    <View style={styles.itinerary}>
-      <Image source={require("../assets/pondicherry.jpeg")} style={styles.image} />
-      <View style={styles.details}>
-        <AppText title="Pondicherry" style={styles.title} />
-        <AppText title="₹12000" style={styles.price} />
-        <View style={styles.profile}>
-          <Profile title={"Renuka Cheripally"} subTitle="Organizer" image={require("../assets/rc.jpeg")} />
-        </View>
-      </View>
-    </View>
+    <Screen style={styles.screen}>
+      <FlatList
+        data={itineraries}
+        keyExtractor={itinerary => itinerary.id.toString()}
+        renderItem={({ item }) => (
+          <Card
+            title={item.title}
+            subTitle={item.subTitle}
+            image={item.image}
+            organizer={item.organizer}
+            duration={item.duration}
+          />
+        )}
+      />
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  details: {
-    padding: 15,
-  },
-  image: {
-    width: "100%",
-    height: 300,
-  },
-  itinerary: {
-  },
-  price: {
-    color: colors.medium,
-    fontSize: 18,
-    fontWeight: "bold",
-    marginTop: 5
-  },
-  profile: {
-    marginTop: 20
-  },
-  title: {
-    color: colors.black,
-    fontSize: 24,
-    fontWeight: "bold"
+  screen: {
+    backgroundColor: colors.light,
+    padding: 20
   }
 })
 

@@ -5,26 +5,34 @@ import Screen from '../components/Screen';
 import Profile from '../components/Profile';
 import colors from '../config/colors';
 import ListItemSeparator from '../components/ListItemSeparator';
-import ListItem from '../components/ListComponents/ListItem';
+import Icon from '../components/Icon';
 
 function MyAccountScreen(props) {
-  const menu = [
+  const menuItems = [
     {
       title: "My Listings",
+      style: {
+        title: {
+          fontSize: 16,
+        }
+      },
       icon: {
         name: "format-list-bulleted",
         backgroundColor: colors.primary,
-        size: 20,
-        color: colors.white,
+        size: 40,
       }
     },
     {
       title: "My Messages",
+      style: {
+        title: {
+          fontSize: 16,
+        }
+      },
       icon: {
         name: "email",
         backgroundColor: colors.secondary,
-        size: 20,
-        color: colors.white,
+        size: 40,
       }
     }
   ]
@@ -32,29 +40,42 @@ function MyAccountScreen(props) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.profile}>
-        <Profile title={"Steven Tucker"} subTitle={"steven.tucker@gmail.com"} image={require("../assets/rc.jpeg")} />
+        <Profile
+          title={"Steven Tucker"}
+          subTitle={"steven.tucker@gmail.com"}
+          image={require("../assets/rc.jpeg")}
+        />
       </View>
       <View style={styles.menu}>
         <FlatList
-          data={menu}
+          data={menuItems}
           keyExtractor={item => item.title}
           renderItem={({ item }) => (
-            <ListItem item={item} />
+            <Profile 
+              title={item.title}
+              style={item.style}
+              IconComponent={
+                <Icon
+                  name={item.icon.name}
+                  size={40}
+                  backgroundColor={item.icon.backgroundColor}
+                />
+              }
+            />
           )}
           ItemSeparatorComponent={ListItemSeparator}
         />
       </View>
       <View style={[styles.menu, styles.logout]}>
-        <ListItem
-          item={{
-            title: "Log Out",
-            icon: {
-              name: "logout",
-              backgroundColor: colors.yellow,
-              size: 20,
-              color: colors.white
-            }
-          }}
+        <Profile
+          title={"Log Out"}
+          IconComponent={
+            <Icon
+              name={"logout"}
+              size={40}
+              backgroundColor={colors.yellow}
+            />
+          }
         />
       </View>
     </Screen>
