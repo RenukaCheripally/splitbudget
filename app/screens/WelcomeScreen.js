@@ -8,7 +8,7 @@ import colors from '../config/colors';
 function WelcomeScreen(props) {
   return (
     <ImageBackground
-    blurRadius={2}
+      blurRadius={2}
       style={styles.background}
       source={require("../assets/background.jpeg")}
     >

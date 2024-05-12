@@ -11,7 +11,7 @@ function AppText({ title, style }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: colors.white,
+    color: colors.black,
     fontSize: 18,
     fontWeight: "bold",
     fontFamily: 'Avenir'
