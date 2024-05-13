@@ -10,18 +10,13 @@ import Test from "./app/screens/Test";
 import Screen from "./app/components/Screen";
 import { View } from "react-native";
 import AppPicker from "./app/components/InputComponents/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Screen>
-        {<View>
-          <AppTextInput icon="email" placeholder="First Name" />
-          <AppTextInput icon="email" placeholder="Second Name" />
-          <AppPicker icon="apps" placeholder="Category" />
-          </View>}
-      </Screen>
+      <LoginScreen />
     </GestureHandlerRootView>
   );
 }
