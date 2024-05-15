@@ -27,4 +27,8 @@ export default {
     color: colors.medium,
     fontSize: 16,
   },
+  button: {
+    color: colors.white,
+    fontSize: 18,
+  },
 }
