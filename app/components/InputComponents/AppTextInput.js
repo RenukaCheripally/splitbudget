@@ -1,13 +1,13 @@
 import React from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import defaultStyles from '../../config/styles';
 
 function AppTextInput({ icon, ...otherProps }) {
   return (
     <View style={styles.container}>
-      {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon} />}
+      {icon && <Ionicons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon} />}
       <TextInput style={[styles.textInput, defaultStyles.text]} {...otherProps} />
     </View>
   );

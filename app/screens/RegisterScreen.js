@@ -9,11 +9,12 @@ import SubmitButton from '../components/Forms/SubmitButton';
 import AppForm from '../components/Forms/AppForm';
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password")
 })
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
   return (
     <Screen style={styles.screen}>
       <Image
@@ -21,14 +22,23 @@ function LoginScreen(props) {
         source={require("../assets/logo.jpeg")}
       />
       <AppForm
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ name: '', email: '', password: '' }}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
       >
         <AppFormField
           autoCapitalize='none'
           autoCorrect={false}
-          icon="email"
+          icon="person"
+          keyboardType='email-address'
+          name="name"
+          placeholder="Name"
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          autoCapitalize='none'
+          autoCorrect={false}
+          icon="mail"
           keyboardType='email-address'
           name="email"
           placeholder="Email Address"
@@ -37,14 +47,14 @@ function LoginScreen(props) {
         <AppFormField
           autoCapitalize='none'
           autoCorrect={false}
-          icon="lock"
+          icon="eye"
           name="password"
           placeholder="Password"
           secureTextEntry
           textContentType="password"
         />
         <SubmitButton
-          title="Login"
+          title="Register"
         />
       </AppForm>
     </Screen>
@@ -64,4 +74,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default LoginScreen;
+export default RegisterScreen;

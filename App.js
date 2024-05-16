@@ -11,12 +11,13 @@ import Screen from "./app/components/Screen";
 import { View } from "react-native";
 import AppPicker from "./app/components/InputComponents/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <LoginScreen />
+      <RegisterScreen />
     </GestureHandlerRootView>
   );
 }
